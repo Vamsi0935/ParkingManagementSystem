@@ -128,13 +128,56 @@ input {
     width: calc(100% - 22px);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .parking {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .park-vehicle {
+        width: 100%;
+    }
+
+    .parking-lot {
+        width: 100%;
+    }
+
     .floor {
         flex-direction: column;
+        align-items: center;
     }
 
     .slot {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .park-vehicle {
         width: 100%;
-        height: auto;
+        gap: 15px;
+    }
+
+    .parking-lot {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .slot {
+        width: 70px;
+        height: 70px;
+        font-size: 12px;
+    }
+
+    input,
+    select,
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        width: 100%;
     }
 }
