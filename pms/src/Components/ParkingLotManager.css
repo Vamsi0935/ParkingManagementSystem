@@ -115,3 +115,20 @@ button:hover {
 hr {
     margin: 10px 0;
 }
+
+.custom-hr {
+    width: 40%;
+    height: 2px;
+    background-color: black;
+    border: none;
+    margin: 10px auto;
+}
+
+.park-custom-hr,
+.update-custom-hr {
+    width: 70%;
+    height: 2px;
+    background-color: black;
+    border: none;
+    margin: 10px auto;
+}

@@ -103,9 +103,9 @@ const ParkingLotManager = () => {
       <div className="parking">
         <div className="park-vehicle">
           <div>
-            <h2>
+            <h2 style={{ textAlign: "center" }}>
               Park Vehicle
-              <hr />
+              <hr className="park-custom-hr" />
             </h2>
             <div className="form-label">
               <label htmlFor="">Type of Vehicle: </label>
@@ -146,9 +146,9 @@ const ParkingLotManager = () => {
             <button onClick={handlePark}>Park</button>
           </div>
           <div>
-            <h2>
+            <h2 style={{ textAlign: "center" }}>
               Unpark Vehicle
-              <hr />
+              <hr className="update-custom-hr" />
             </h2>
             <div className="form-label">
               <label htmlFor="">Ticket No:</label>
@@ -163,7 +163,10 @@ const ParkingLotManager = () => {
           </div>
         </div>
         <div className="parking-lot">
-          <h2>Parking Lot Status</h2>
+          <h2 style={{ textAlign: "center" }}>
+            Parking Lot Status
+            <hr className="custom-hr" />
+          </h2>
           {status.map((floor, floorIndex) => (
             <div key={floorIndex}>
               <h3>Floor {floorIndex + 1}</h3>
