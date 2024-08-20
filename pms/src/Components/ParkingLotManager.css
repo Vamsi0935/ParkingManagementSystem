@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1,
+h2,
+h3 {
+    color: #333;
+    margin: 0;
+}
+
+.parking {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.park-vehicle,
+.parking-lot {
+    margin: 20px;
+}
+
+.park-vehicle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.park-vehicle>div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input,
+select,
+button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.parking-lot {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.floor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.slot {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.slot.truck {
+    background-color: #FF6347;
+}
+
+.slot.bike {
+    background-color: #4682B4;
+}
+
+.slot.car {
+    background-color: #32CD32;
+}
+
+.slot.unknown {
+    background-color: #D3D3D3;
+}
+
+.slot-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+}
+
+.slot-info {
+    cursor: pointer;
+}
+
+.slot-number {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+select,
+input {
+    width: calc(100% - 22px);
+}
+
+@media (max-width: 600px) {
+    .floor {
+        flex-direction: column;
+    }
+
+    .slot {
+        width: 100%;
+        height: auto;
+    }
+}
