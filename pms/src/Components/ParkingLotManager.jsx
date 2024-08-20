@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "./ParkingLotManager.css";
 import ParkingLot from "../Model/ParkingLot";
@@ -14,8 +14,36 @@ const ParkingLotManager = () => {
     color: "",
   });
   const [status, setStatus] = useState(parkingLot.getSlotStatus());
+  const [existingRegistrations, setExistingRegistrations] = useState({
+    car: [],
+    bike: [],
+    truck: [],
+  });
+
+  useEffect(() => {
+    const registrations = { car: [], bike: [], truck: [] };
+    status.flat().forEach((slot) => {
+      if (slot && slot.vehicle) {
+        registrations[slot.vehicle.type].push(slot.vehicle.registration);
+      }
+    });
+    setExistingRegistrations(registrations);
+  }, [status]);
 
   const handlePark = () => {
+    if (
+      vehicle.type &&
+      existingRegistrations[vehicle.type].includes(vehicle.registration)
+    ) {
+      Swal.fire({
+        title: "Registration Error",
+        text: `A ${vehicle.type} with this registration number already exists.`,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     const newTicket = parkingLot.parkVehicle(vehicle);
     if (newTicket) {
       setTicket(newTicket);
@@ -75,42 +103,62 @@ const ParkingLotManager = () => {
       <div className="parking">
         <div className="park-vehicle">
           <div>
-            <h2>Park Vehicle</h2>
-            <select
-              value={vehicle.type}
-              onChange={(e) => setVehicle({ ...vehicle, type: e.target.value })}
-            >
-              <option value="">Select Vehicle</option>
-              <option value="car">Car</option>
-              <option value="bike">Bike</option>
-              <option value="truck">Truck</option>
-            </select>
-            <input
-              type="text"
-              placeholder="Registration"
-              value={vehicle.registration}
-              onChange={(e) =>
-                setVehicle({ ...vehicle, registration: e.target.value })
-              }
-            />
-            <input
-              type="text"
-              placeholder="Color"
-              value={vehicle.color}
-              onChange={(e) =>
-                setVehicle({ ...vehicle, color: e.target.value })
-              }
-            />
+            <h2>
+              Park Vehicle
+              <hr />
+            </h2>
+            <div className="form-label">
+              <label htmlFor="">Type of Vehicle: </label>
+              <select
+                value={vehicle.type}
+                onChange={(e) =>
+                  setVehicle({ ...vehicle, type: e.target.value })
+                }
+              >
+                <option value="">Select Vehicle</option>
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="truck">Truck</option>
+              </select>
+            </div>
+            <div className="form-label">
+              <label htmlFor="">Regd No:</label>
+              <input
+                type="text"
+                placeholder="Registration"
+                value={vehicle.registration}
+                onChange={(e) =>
+                  setVehicle({ ...vehicle, registration: e.target.value })
+                }
+              />
+            </div>
+            <div className="form-label">
+              <label htmlFor="">Color:</label>
+              <input
+                type="text"
+                placeholder="Color"
+                value={vehicle.color}
+                onChange={(e) =>
+                  setVehicle({ ...vehicle, color: e.target.value })
+                }
+              />
+            </div>
             <button onClick={handlePark}>Park</button>
           </div>
           <div>
-            <h2>Unpark Vehicle</h2>
-            <input
-              type="text"
-              placeholder="Ticket"
-              value={ticket}
-              onChange={(e) => setTicket(e.target.value)}
-            />
+            <h2>
+              Unpark Vehicle
+              <hr />
+            </h2>
+            <div className="form-label">
+              <label htmlFor="">Ticket No:</label>
+              <input
+                type="text"
+                placeholder="Ticket"
+                value={ticket}
+                onChange={(e) => setTicket(e.target.value)}
+              />
+            </div>
             <button onClick={handleUnpark}>Unpark</button>
           </div>
         </div>

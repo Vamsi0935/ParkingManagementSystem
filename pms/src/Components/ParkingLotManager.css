@@ -2,55 +2,58 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-}
-
-h1,
-h2,
-h3 {
-    color: #333;
-    margin: 0;
+    background-color: #f0f0f0;
 }
 
 .parking {
     display: flex;
-    justify-content: space-evenly;
-}
-
-.park-vehicle,
-.parking-lot {
-    margin: 20px;
+    justify-content: space-around;
 }
 
 .park-vehicle {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin: 20px;
 }
 
-.park-vehicle>div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.park-vehicle div {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input,
+.park-vehicle h2 {
+    margin-top: 0;
+}
+
+.form-label {
+    margin-bottom: 15px;
+}
+
+.form-label label {
+    display: block;
+    margin-bottom: 5px;
+}
+
 select,
-button {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
 button {
     background-color: #007bff;
-    color: white;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    width: 90%;
+    font-size: 16px;
 }
 
 button:hover {
@@ -58,9 +61,15 @@ button:hover {
 }
 
 .parking-lot {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.parking-lot h2 {
+    margin-top: 0;
 }
 
 .floor {
@@ -70,114 +79,39 @@ button:hover {
 }
 
 .slot {
-    width: 105px;
+    width: 100px;
     height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.slot-info {
     text-align: center;
-    position: relative;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-.slot.truck {
-    background-color: #FF6347;
-}
-
-.slot.bike {
-    background-color: #4682B4;
-}
-
-.slot.car {
-    background-color: #32CD32;
-}
-
-.slot.unknown {
-    background-color: #D3D3D3;
-}
-
-.slot-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 5px;
-}
-
-.slot-info {
-    cursor: pointer;
 }
 
 .slot-number {
-    font-size: 16px;
-    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-h3 {
-    margin-top: 0;
+.slot.car {
+    background-color: #d1e7dd;
 }
 
-select,
-input {
-    width: calc(100% - 22px);
+.slot.bike {
+    background-color: #f8d7da;
 }
 
-@media (max-width: 768px) {
-    .parking {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .park-vehicle {
-        width: 100%;
-    }
-
-    .parking-lot {
-        width: 100%;
-    }
-
-    .floor {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .slot {
-        width: 80px;
-        height: 80px;
-    }
+.slot.truck {
+    background-color: #d3d3d3;
 }
 
-@media (max-width: 480px) {
-    .park-vehicle {
-        width: 100%;
-        gap: 15px;
-    }
+.slot.unknown {
+    background-color: #e9ecef;
+}
 
-    .parking-lot {
-        width: 100%;
-        gap: 10px;
-    }
-
-    .slot {
-        width: 70px;
-        height: 70px;
-        font-size: 12px;
-    }
-
-    input,
-    select,
-    button {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    button {
-        width: 100%;
-    }
+hr {
+    margin: 10px 0;
 }
