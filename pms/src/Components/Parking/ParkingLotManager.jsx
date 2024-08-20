@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "./ParkingLotManager.css";
-import ParkingLot from "../Model/ParkingLot";
-import Navbar from "../Navbar/Navbar";
+import ParkingLot from "../../Model/ParkingLot";
 
 const parkingLot = new ParkingLot("PR123", 5, 10);
 
@@ -99,7 +98,6 @@ const ParkingLotManager = () => {
 
   return (
     <>
-      <Navbar />
       <div className="parking">
         <div className="park-vehicle">
           <div>

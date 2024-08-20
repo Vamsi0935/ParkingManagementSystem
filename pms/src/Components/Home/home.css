@@ -1,0 +1,39 @@
+body {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: #aeb6bf;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #aeb6bf;
+}
+
+.home-desc {
+    max-width: 600px;
+    margin-right: 20px;
+}
+
+.home-desc h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.home-desc p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.car-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
