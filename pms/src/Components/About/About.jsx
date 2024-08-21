@@ -4,11 +4,11 @@ import "./about.css";
 const About = () => {
   return (
     <div className="about">
-      <header className="about-header">
-        <h1>About Us</h1>
-      </header>
       <section className="about-content">
         <div className="about-desc">
+          <header className="about-header">
+            <h1>About Us</h1>
+          </header>
           <p>
             We are dedicated to making parking easy and efficient. Our advanced{" "}
             <br />
